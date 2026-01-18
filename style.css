@@ -1,0 +1,1944 @@
+/* Variables pour un style facile à maintenir - MISES À JOUR AVEC LES COULEURS DE LA PHOTO */
+:root {
+    --light-background: #f0f0f0;    /* Fond très clair, presque blanc (inspiré de la chemise) */
+    --dark-text-color: #333333;     /* Texte foncé (inspiré des cheveux et lunettes) */
+    --accent-color: #b88b68;        /* Couleur d'accentuation chaude (inspirée du teint et arrière-plan) */
+    --medium-text-color: #666666;   /* Gris moyen pour les textes secondaires */
+}
+
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-background); /* Utilisation du nouveau fond clair */
+    color: var(--dark-text-color);             /* Utilisation du nouveau texte foncé */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Section Header et Navigation --- */
+
+.header {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 80px;
+}
+
+.header h1 {
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: var(--dark-text-color); /* Le titre reste foncé */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 10px 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--medium-text-color); /* Texte des liens non actifs en gris moyen */
+    font-weight: 400;
+    font-size: 1em;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--dark-text-color); /* Au survol, devient plus foncé */
+}
+
+.navbar a.active {
+    color: var(--accent-color);        /* Lien actif avec la couleur d'accentuation */
+    border-bottom: 2px solid var(--accent-color); /* Bordure également avec l'accentuation */
+    font-weight: 500;
+}
+@media (max-width: 768px) { 
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 10px;
+        z-index: 9999;
+
+        /* Glassmorphism avec moins de transparence */
+        background: rgba(139, 139, 139, 0.1);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        border-radius: 15px;
+    }
+
+    .navbar ul {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 10px 15px;
+        padding: 0;
+        margin: 0 0 10px 0;
+        list-style: none;
+    }
+
+    .navbar li {
+        flex: 1 1 auto;
+        text-align: center;
+        min-width: 120px;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 10px 15px;
+        font-size: 0.95em;
+        font-weight: 500;
+        text-decoration: none;
+
+        border-radius: 12px;
+
+        /* Glass effect pour les liens avec moins de transparence */
+        background: rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(6px) saturate(150%);
+        -webkit-backdrop-filter: blur(6px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+
+        color: var(--dark-text-color);
+        transition: 0.25s ease;
+    }
+
+    .navbar a.active {
+        background: var(--accent-color);
+        color: #fff;
+    }
+
+    .navbar a:hover {
+        background: rgba(var(--accent-color-rgb), 0.25);
+    }
+
+    body {
+        padding-top: 100px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* espace pour éviter que le h1 soit caché par la navbar */
+    .header h1 {
+        margin-top: 140px; /* ajuster selon la hauteur de la navbar */
+        text-align: center;
+        font-size: 1.8em; /* optionnel, réduire la taille sur mobile */
+    }
+}
+
+/* --- Section Hero (Contenu principal) --- */
+
+.hero-section {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 0;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+    gap: 50px;
+}
+
+/* Image de profil (cercle) */
+.profile-pic-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    /* Créer la bordure avec la nouvelle couleur d'accentuation */
+    border: 5px solid var(--accent-color);
+    overflow: hidden;
+    box-shadow: 0 0 0 15px rgba(184, 139, 104, 0.1); /* Ombre légère avec l'accentuation */
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    /* Pas de filtre ici pour conserver les couleurs naturelles de votre photo */
+}
+
+/* Texte */
+.text-content {
+    max-width: 450px;
+}
+
+.text-content h2 {
+    font-size: 3em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--dark-text-color); /* Reste en foncé */
+}
+
+.text-content h2 strong {
+    font-weight: 700;
+    color: var(--dark-text-color);
+}
+
+.text-content p a {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--medium-text-color); /* Texte du paragraphe en gris moyen */
+}
+
+.text-content p strong {
+    color: var(--dark-text-color); /* Les mots importants en gras restent foncés */
+    font-weight: 600;
+}
+
+/* --- Section Liens Sociaux (Footer) --- */
+
+.social-links {
+    padding: 30px;
+    margin-top: auto;
+}
+
+.social-links a {
+    font-size: 1.8em;
+    color: var(--dark-text-color); /* Icônes sociales en foncé */
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color); /* Au survol, utilisent la couleur d'accentuation */
+}
+
+/* --- Media Queries pour la réactivité (pas de changement nécessaire ici) --- */
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .profile-pic-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .text-content h2 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.2em;
+    }
+    .navbar ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .text-content h2 {
+        font-size: 2em;
+    }
+    .text-content p {
+        font-size: 1em;
+    }
+    .social-links a {
+        font-size: 1.5em;
+        margin: 0 10px;
+    }
+}
+
+footer p{
+    text-align: center;
+    font-size: 0.7em;
+    flex-wrap: wrap;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* ---------------------------  PAGE : RESUME  ------------------------------ */
+/* -------------------------------------------------------------------------- */
+
+/* Section About (titre) */
+.about-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin: 10px auto 0;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* ------------------ TIMELINE (ligne verticale + items) ------------------ */
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+/* La ligne verticale */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: rgba(184, 139, 104, 0.4);
+    border-radius: 10px;
+}
+
+/* Chaque item du CV */
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 60px;
+}
+
+/* Point rond (dot) avec effet futuriste */
+.timeline-dot {
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(184, 139, 104, 0.6),
+                0 0 20px rgba(var(--accent-color-rgb), 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-dot:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(var(--accent-color-rgb), 0.8),
+                0 0 25px rgba(184, 139, 104, 0.7);
+}
+
+/* Contenu textuel avec glassmorphism */
+.timeline-content {
+    background: rgba(255, 255, 255, 0.38);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2),
+                0 0 15px rgba(var(--accent-color-rgb), 0.25);
+
+    padding: 20px 25px;
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--accent-color);
+}
+
+.timeline-content:hover {
+    transform: translateX(5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25),
+                0 0 20px rgba(var(--accent-color-rgb), 0.4);
+}
+
+.timeline-date {
+    font-weight: 600;
+    font-size: 0.95em;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+.timeline-content h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 5px 0 10px;
+    color: var(--dark-text-color);
+}
+
+.timeline-content p {
+    font-size: 1em;
+    color: var(--medium-text-color);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Lien du diplôme */
+.diploma-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.diploma-link:hover {
+    text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ------------------------------ RESPONSIVE -------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2em;
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .timeline-dot {
+        left: -1px;
+    }
+
+    .timeline-content {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-content h3 {
+        font-size: 1.2em;
+    }
+
+    .timeline-content p {
+        font-size: 0.9em;
+    }
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/* ---------------------------   PAGE : SKILLS   ---------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* Section principale */
+.skills-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 25px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+}
+
+/* Titre de section */
+.section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 3px;
+    margin: 12px auto 0;
+    background: var(--accent-color);
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+/* ----------------------------- GRID ------------------------------ */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+/* ----------------------------- CARDS ------------------------------ */
+
+.skill-category-card {
+    padding: 35px 28px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: 0.35s ease-in-out;
+    position: relative;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 38px rgba(0, 0, 0, 0.18),
+                0 0 18px var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.skill-category-card::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    filter: blur(12px);
+    opacity: 0.4;
+}
+
+.icon-accent {
+    font-size: 2.6em;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.skill-category-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: var(--dark-text-color);
+}
+
+/* ----------------------------- LIST ------------------------------ */
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 1.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--medium-text-color);
+}
+
+.skill-list li:last-child {
+    border-bottom: none;
+}
+
+/* --------------------------- LEVEL BARS --------------------------- */
+
+.skill-level {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.skill-level span {
+    display: block;
+    width: 18px;
+    height: 6px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+/* niveaux colorés */
+.level-expert span:nth-child(-n+5),
+.level-advanced span:nth-child(-n+4),
+.level-intermediate span:nth-child(-n+3),
+.level-basic span:nth-child(-n+2),
+.level-beginner span:nth-child(-n+1){
+    background: var(--accent-color);
+    box-shadow: 0 0 6px var(--accent-color);
+}
+
+/* -------------------------------------------------------------------------- */
+/* ------------------------------ FOOTER ------------------------------------ */
+/* -------------------------------------------------------------------------- */
+
+.social-links {
+    margin-top: 65px;
+}
+
+.social-links a {
+    margin: 0 12px;
+    font-size: 1.6em;
+    color: var(--dark-text-color);
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--accent-color);
+}
+
+.social-links p {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: var(--medium-text-color);
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.1em;
+    }
+    .skill-category-card {
+        padding: 30px 22px;
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* ------------------------- EXPERIENCE SECTION ---------------------------- */
+/* -------------------------------------------------------------------------- */
+
+.experience-section {
+    width: 90%;
+    max-width: 1200px;
+    padding: 40px 20px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+/* Titre de Section */
+.experience-section .section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+
+}
+
+.experience-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+/* --- Liste des Expériences --- */
+
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: left;
+}
+
+/* --- ITEM GLASSMORPHISM --- */
+.job-item {
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    position: relative;
+    border-left: 8px solid var(--accent-color);
+}
+
+.job-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Titre/Période au-dessus de la carte */
+.job-title-period {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Grille interne pour les détails */
+.job-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    padding-top: 15px;
+}
+
+.job-meta {
+    padding-right: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.job-meta h3 {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 15px;
+}
+
+.job-meta p {
+    font-size: 0.95em;
+    color: var(--medium-text-color);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.icon-meta {
+    color: var(--accent-color);
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+.job-meta p strong {
+    color: var(--dark-text-color);
+    font-weight: 600;
+}
+
+/* Description des Missions */
+.job-description h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--dark-text-color);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.mission-list {
+    list-style: none;
+    padding: 0;
+}
+
+.mission-list li {
+    font-size: 0.95em;
+    color: var(--medium-text-color);
+    padding: 5px 0 5px 15px;
+    position: relative;
+}
+
+/* Puce personnalisée pour les missions */
+.mission-list li::before {
+    content: "\2022";
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+    .job-details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .job-meta {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 15px;
+        margin-bottom: 5px;
+    }
+    
+    .job-meta h3 {
+        font-size: 1.3em;
+    }
+
+    .job-title-period {
+        top: -12px;
+        font-size: 0.8em;
+    }
+}
+
+
+
+/* ================================================= */
+/* --- STYLES SPÉCIFIQUES À LA PAGE "EVENTS" --- */
+/* ================================================= */
+
+.events-section {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Titre de Section */
+.events-section .section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.events-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+/* --- Grille des Événements --- */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+/* --- Cards avec Glassmorphism / Futuriste --- */
+.event-card {
+    background: rgba(255, 255, 255, 0.38);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255,255,255,0.05) inset;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border-bottom: 5px solid #dddddd;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2), 0 0 15px rgba(255,255,255,0.08) inset;
+    border-bottom: 5px solid var(--accent-color);
+    background: rgba(255,255,255,0.12);
+}
+
+/* Image */
+.event-image-container {
+    width: 100%;
+    height: 180px; 
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.event-card:hover .event-image {
+    transform: scale(1.05); 
+    filter: brightness(1);
+}
+
+.event-content {
+    padding: 20px;
+    position: relative;
+}
+
+/* Badge de Catégorie */
+.event-type {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Titre de l’événement */
+.event-content h3 {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 12px;
+    min-height: 40px;
+}
+
+/* --- Nouvelle présentation des méta-données (Lieu | Date) --- */
+.event-meta {
+    font-size: 0.9em;
+    color: var(--medium-text-color);
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.event-meta i.icon-meta {
+    color: var(--accent-color);
+    margin-right: 5px;
+}
+
+/* Conteneur pour séparer Lieu / Date sur mobile */
+.event-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Description */
+.event-description {
+    font-size: 0.95em;
+    color: var(--medium-text-color);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+
+
+/* --- Réactivité --- */
+@media (max-width: 992px) {
+    .events-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .event-meta {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
+
+/* ================================================= */
+/* --- STYLES SPÉCIFIQUES À LA PAGE "PROJECTS" --- */
+/* Glassmorphism / Futuriste pour les cartes projets */
+/* ================================================= */
+
+.projects-section {
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Titre de Section */
+.projects-section .section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.projects-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+
+
+.study-subjects-section h3,
+.realized-projects-section h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 10px;
+}
+
+/* --- SECTION 1 : MATIÈRES (TAGS) --- */
+.subject-tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+}
+
+.subject-tag {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: default;
+    background-color: #f5f5f5;
+    color: var(--dark-text-color);
+    border: 1px solid #e0e0e0;
+}
+
+.subject-tag:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Couleurs spécifiques pour la catégorisation (Facultatif) */
+.tag-dev { background-color: #e0f7fa; border-color: #b2ebf2; }
+.tag-data { background-color: #fff3e0; border-color: #ffcc80; }
+.tag-sys { background-color: #e8eaf6; border-color: #c5cae9; }
+
+/* --- SECTION 2 : PROJETS (CARTES) --- */
+.realized-projects-section {
+    padding: 0 20px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+/* --- Cartes Glassmorphism / Futuriste --- */
+.project-card {
+    background: rgba(255, 255, 255, 0.38);  
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1), 0 0 10px rgba(255,255,255,0.05) inset;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2), 0 0 15px rgba(255,255,255,0.08) inset;
+    border: 1px solid var(--accent-color);
+    background: rgba(255,255,255,0.12);
+}
+
+/* Header du projet */
+.project-header {
+    margin-bottom: 15px;
+    border-bottom: 1px dashed rgba(255,255,255,0.2);
+    padding-bottom: 15px;
+}
+
+.project-badge {
+    display: inline-block;
+    color: var(--dark-text-color);
+    border: 1px solid var(--accent-color);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+
+.project-card h4 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+}
+
+.project-description ul {
+    font-size: 1em;
+    color: var(--medium-text-color);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Détails */
+.project-details {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(255,255,255,0.2);
+}
+
+.project-details p {
+    font-size: 0.95em;
+    color: var(--dark-text-color);
+}
+
+/* Liens */
+.project-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.project-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: color 0.2s;
+}
+
+.project-link:hover {
+    color: var(--dark-text-color);
+}
+
+.project-link i {
+    margin-right: 5px;
+}
+
+/* --- Réactivité --- */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-card {
+        padding: 25px;
+    }
+    .project-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .subject-tag {
+        padding: 15px;
+        font-size: 0.95em;
+    }
+}
+
+
+/* ================================================= */
+/* --- STYLES SPÉCIFIQUES À LA PAGE "INTERESTS" --- */
+/* Version 2 – Glassmorphism minimaliste futuriste   */
+/* ================================================= */
+
+.interests-section {
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* --- Titres (inchangés comme demandé) --- */
+.interests-section .section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.interests-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+.section-subtitle {
+    font-size: 1.1em;
+    color: var(--medium-text-color);
+    margin-bottom: 40px;
+}
+
+.passions-hobbies-section h3,
+.qualities-section h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 40px;
+}
+
+/* ================================================= */
+/* --- CARTES PASSIONS (STYLE GLASSMORPHISM V2) --- */
+/* ================================================= */
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+}
+
+/* Carte futuriste translucide */
+.interest-card {
+    background: rgba(255, 255, 255, 0.38);
+    border-radius: 18px;
+    padding-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15),
+                0 0 25px rgba(255, 255, 255, 0.06) inset;
+    text-align: center;
+    transition: 0.35s ease;
+    transform: perspective(600px) translateZ(0);
+    margin-bottom: 10px;
+    
+}
+
+.interest-card:hover {
+    transform: perspective(600px) translateZ(18px) scale(1.03);
+    box-shadow: 
+        0 12px 35px rgba(0, 0, 0, 0.25),
+        0 0 20px var(--accent-color);
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.13);
+}
+
+/* Image futuriste */
+.interest-icon-container {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.interest-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.interest-card:hover .interest-image {
+    transform: scale(1.08);
+}
+
+/* Textes */
+.interest-card h4 {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin: 15px 0 10px;
+}
+
+.interest-card p {
+    font-size: 0.95em;
+    color: var(--medium-text-color);
+    line-height: 1.5;
+    padding: 0 20px;
+}
+
+/* ================================================= */
+/* --- QUALITÉS (STYLE GLASSMORPHISM V2) ---------- */
+/* ================================================= */
+
+.qualities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.quality-item {
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: var(--dark-text-color);
+    text-align: center;
+    transition: 0.35s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15),
+                0 0 12px rgba(255, 255, 255, 0.05) inset;
+}
+
+.quality-item:hover {
+    transform: scale(1.06);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.25),
+        0 0 15px var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.icon-quality {
+    font-size: 2.6em;
+    margin-bottom: 10px;
+}
+
+.quality-item h4 {
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.quality-item p {
+    font-size: 0.9em;
+    color: var(--dark-text-color);
+    line-height: 1.4;
+}
+
+/* ================================================= */
+/* --- RESPONSIVE --- */
+/* ================================================= */
+@media (max-width: 768px) {
+    .interests-grid,
+    .qualities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/* ----------------------------- CONTACT PAGE ------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+.contact-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 60px 25px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1.1em;
+    color: var(--medium-text-color);
+    margin-bottom: 50px;
+    line-height: 1.6;
+}
+
+/*GRID LAYOUT*/
+
+
+.contact-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 900px) {
+    .contact-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*FORM CONTAINER*/
+
+.contact-form-container {
+    background: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 22px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+}
+
+.contact-form-container h3 {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    color: var(--dark-text-color);
+    font-weight: 600;
+}
+
+/*FORM*/
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-form label {
+    font-weight: 600;
+    font-size: 0.95em;
+    display: block;
+    margin-bottom: 6px;
+    color: var(--dark-text-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    background: rgba(255, 255, 255, 0.55);
+    font-size: 1em;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(184, 139, 104, 0.25);
+}
+
+/*SUBMIT BUTTON*/
+
+.submit-button {
+    width: 100%;
+    padding: 13px 0;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.submit-button:hover {
+    background: #a07351;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(184, 139, 104, 0.4);
+}
+
+/*CONTACT INFO CONTAINER*/
+
+.contact-info-container {
+    background: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 22px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info-container h3 {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    color: var(--dark-text-color);
+    font-weight: 600;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.icon-contact {
+    font-size: 1.8em;
+    color: var(--accent-color);
+}
+
+.info-item p,
+.info-item a {
+    margin: 0;
+    font-size: 1em;
+    color: var(--medium-text-color);
+}
+
+.info-item a {
+    display: block;
+    margin-top: 3px;
+    color: var(--accent-color);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.info-item a:hover {
+    text-decoration: underline;
+}
+
+/*MAP*/
+
+.map-container {
+    margin-top: 25px;
+}
+
+.map-container p {
+    margin-bottom: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--dark-text-color);
+}
+
+.map-container iframe {
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    transition: 0.3s;
+}
+
+.map-container iframe:hover {
+    transform: scale(1.01);
+}
+
+/* -------------------------------------------------------------------------- */
+/* ------------------------------- FOOTER ----------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+.social-links {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.social-links a {
+    margin: 0 12px;
+    font-size: 1.5em;
+    color: var(--dark-text-color);
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+.social-links p {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: var(--medium-text-color);
+}
+
+
+
+
+
+/* ================================================= */
+/* ===================== QUIZ ====================== */
+/* ================================================= */
+
+.quiz-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1.1em;
+    color: var(--medium-text-color);
+    margin-bottom: 35px;
+}
+
+/* ================================================= */
+/* ================== RESULTAT ===================== */
+/* ================================================= */
+
+#result-area {
+    display: none; 
+    
+    position: fixed;   
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    width: 90%;
+    max-width: 400px;
+    z-index: 1;
+    
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    text-align: center; 
+}
+
+.result-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    border-top: 8px solid var(--accent-color);
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+#score-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 15px;
+}
+
+#feedback-message {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.correction-item {
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-left: 5px solid var(--accent-color);
+}
+
+.correct-ans {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #2e7d32;
+    border-left: 5px solid #4caf50;
+}
+
+.wrong-ans {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #c62828;
+    border-left: 5px solid #f44336;
+}
+
+/* ================================================= */
+/* ==================== QUESTIONS ================== */
+/* ================================================= */
+
+#quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.question-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px 22px;
+    border-radius: 15px;
+    text-align: left;
+    border-left: 6px solid #ddd;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Etat après correction */
+.question-card.correct {
+    background-color: rgba(76, 175, 80, 0.2);
+    border-left-color: #4caf50;
+}
+
+.question-card.wrong {
+    background-color: rgba(244, 67, 54, 0.2);
+    border-left-color: #f44336;
+}
+
+.question-text {
+    font-weight: 600;
+    color: var(--dark-text-color);
+    margin-bottom: 8px;
+}
+
+.question-card label {
+    display: block;
+    margin-bottom: 4px;
+    cursor: pointer;
+    color: var(--medium-text-color);
+}
+
+/* Feedback sous la question */
+.answer-feedback {
+    margin-top: 6px;
+    font-size: 0.95em;
+    font-weight: 600;
+}
+
+.answer-feedback.correct {
+    color: #2e7d32;
+}
+
+.answer-feedback.wrong {
+    color: #c62828;
+}
+
+/* ================================================= */
+/* ===================== BOUTONS =================== */
+/* ================================================= */
+
+.submit-quiz-btn {
+    margin-top: 30px;
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    border: 2px solid var(--dark-text-color);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-quiz-btn:hover {
+    background: var(--dark-text-color);
+    color: white;
+}
+
+.retry-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid var(--dark-text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+    background: var(--dark-text-color);
+    color: white;
+}
+
+/* ================================================= */
+/* ==================== RESPONSIVE ================= */
+/* ================================================= */
+
+@media (max-width: 600px) {
+    .question-card {
+        padding: 14px 16px;
+    }
+
+    .result-container {
+        padding: 25px;
+    }
+}
+
+
+/* ================================================= */
+/* ---- TESTIMONIALS (Glassmorphism / Futuriste) ---- */
+/* ================================================= */
+
+.testimonials-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* TITRES */
+.section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    font-size: 1.1em;
+    color: var(--medium-text-color);
+    margin-bottom: 50px;
+    line-height: 1.6;
+}
+
+/* ---------------- CARTE UNIQUE ---------------- */
+.testimonial-single-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25),
+                0 0 15px rgba(var(--accent-color-rgb), 0.25);
+    margin-bottom: 60px;
+}
+
+.testimonial-content {
+    flex: 1 1 400px;
+    text-align: left;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 2em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-size: 1.2em;
+    font-style: italic;
+    color: var(--dark-text-color);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.reviewer-info h4 {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--dark-text-color);
+}
+
+.reviewer-info p {
+    font-size: 0.95em;
+    color: var(--medium-text-color);
+}
+
+/* IMAGE */
+.testimonial-image {
+    flex: 1 1 350px;
+    text-align: center;
+}
+
+.testimonial-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* ---------------- IIT SUMMARY ---------------- */
+.iit-summary {
+    max-width: 850px;
+    margin: 0 auto 60px auto;
+    padding: 35px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.28);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15),
+                0 0 20px rgba(var(--accent-color-rgb), 0.25);
+}
+
+.iit-summary h3 {
+    font-size: 1.6em;
+    text-align: center;
+    color: var(--dark-text-color);
+    margin-bottom: 25px;
+}
+
+.iit-summary ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.iit-summary ul li {
+    padding: 12px 18px;
+    border-left: 5px solid var(--accent-color);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 4px 10px rgba(var(--accent-color-rgb), 0.15);
+    color: var(--dark-text-color);
+    font-size: 0.95em;
+}
+
+.iit-summary ul li i {
+    margin-right: 8px;
+    color: var(--accent-color);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 900px) {
+    .testimonial-single-card {
+        flex-direction: column;
+    }
+
+    .testimonial-image img {
+        max-width: 100%;
+    }
+
+    .testimonial-content {
+        text-align: center;
+    }
+}
+
+

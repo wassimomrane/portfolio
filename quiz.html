@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Quiz</title>
+    <link rel="icon" href="assits/images/image.png" type="image/png">   
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>WELCOME TO MY AREA</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="skills.html">Computer Skills</a></li>
+                <li><a href="internship.html">Internships</a></li>
+                <li><a href="events.html">Demonstrations</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+            <ul>
+                <li><a href="interests.html">Areas of Interest</a></li>
+                <li><a href="quiz.html" class="active">Quiz</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="testimonials.html">Testimonial about IIT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="quiz-section">
+        <h2 class="section-title">TECH QUIZ</h2>
+        <p class="section-subtitle">Test your knowledge in web development and computer science!</p>
+
+        <div id="result-area" class="result-container" style="display: none;">
+            <h3>Your Score: <span id="score-display">0</span> / 10</h3>
+            <p id="feedback-message"></p>
+            <div id="correction-list"></div>
+            <button type="button" class="retry-btn" onclick="window.location.reload()">Try Again</button>
+        </div>
+
+        <form id="quiz-form">
+            <div id="quiz-container">
+                <div class="question-card">
+                    <p class="question-text">1. What does HTML stand for?</p>
+                    <label><input type="radio" name="q1" value="a"> Hyper Text Markup Language</label>
+                    <label><input type="radio" name="q1" value="b"> High Tech Modern Language</label>
+                    <label><input type="radio" name="q1" value="c"> Hyper Transfer Main Line</label>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Which language is primarily used for styling web pages?</p>
+                    <label><input type="radio" name="q2" value="a"> Python</label>
+                    <label><input type="radio" name="q2" value="b"> CSS</label>
+                    <label><input type="radio" name="q2" value="c"> PHP</label>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. In JavaScript, what does typeof([]) return?</p>
+                    <label><input type="radio" name="q3" value="a"> "array"</label>
+                    <label><input type="radio" name="q3" value="b"> "list"</label>
+                    <label><input type="radio" name="q3" value="c"> "object"</label>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Which symbol is used for IDs in CSS?</p>
+                    <label><input type="radio" name="q4" value="a"> . (dot)</label>
+                    <label><input type="radio" name="q4" value="b"> # (hashtag/pound)</label>
+                    <label><input type="radio" name="q4" value="c"> @ (at symbol)</label>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Which Git command is used to send changes to a remote repository?</p>
+                    <label><input type="radio" name="q5" value="a"> git pull</label>
+                    <label><input type="radio" name="q5" value="b"> git commit</label>
+                    <label><input type="radio" name="q5" value="c"> git push</label>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Which protocol is secure for web browsing?</p>
+                    <label><input type="radio" name="q6" value="a"> HTTP</label>
+                    <label><input type="radio" name="q6" value="b"> HTTPS</label>
+                    <label><input type="radio" name="q6" value="c"> FTP</label>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. SQL is a language used for what purpose?</p>
+                    <label><input type="radio" name="q7" value="a"> Databases</label>
+                    <label><input type="radio" name="q7" value="b"> Graphic Design</label>
+                    <label><input type="radio" name="q7" value="c"> Artificial Intelligence</label>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. React is a library developed by whom?</p>
+                    <label><input type="radio" name="q8" value="a"> Google</label>
+                    <label><input type="radio" name="q8" value="b"> Microsoft</label>
+                    <label><input type="radio" name="q8" value="c"> Meta (Facebook)</label>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Which of these is a NoSQL database?</p>
+                    <label><input type="radio" name="q9" value="a"> MySQL</label>
+                    <label><input type="radio" name="q9" value="b"> MongoDB</label>
+                    <label><input type="radio" name="q9" value="c"> Oracle</label>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. What does the acronym API stand for?</p>
+                    <label><input type="radio" name="q10" value="a"> Application Programming Interface</label>
+                    <label><input type="radio" name="q10" value="b"> Automated Protocol Integration</label>
+                    <label><input type="radio" name="q10" value="c"> Advanced Program Instruction</label>
+                </div>
+            </div>
+
+            <button type="button" class="submit-quiz-btn" onclick="calculateScore()">Submit My Answers</button>
+        </form>
+
+    </main>
+
+    <footer class="social-links">
+        <a href="https://www.facebook.com/wassim.omrane.142" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/wassim-omrane-882317282/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/wassimomrane" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/handsome_rover/?hl=fr" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <br>
+        <p>© 2025 Personal Portfolio | by wassim omrane</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

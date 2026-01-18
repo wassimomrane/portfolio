@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets & Matières</title>
+    <link rel="icon" href="assits/images/image.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>WELCOME TO MY AREA</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="skills.html">Computer Skills</a></li>
+                <li><a href="internship.html">Internships</a></li>
+                <li><a href="events.html">Demonstrations</a></li>
+                <li><a href="projects.html"class="active">Projects</a></li>
+                
+            </ul>
+            <ul>
+                <li><a href="interests.html">Areas of interest</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="testimonials.html">Testimonial about IIT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="projects-section">
+        <h2 class="section-title">PROJECTS</h2>
+        
+        <section class="study-subjects-section">
+            <h3>Basic Academic Subjects</h3>
+            <p class="section-subtitle">The key areas of my theoretical and practical expertise.</p>
+            <div class="subject-tags-grid">
+                <span class="subject-tag tag-dev">Advanced Algorithms</span>
+                <span class="subject-tag tag-dev">Relational Database (SQL)</span>
+                <span class="subject-tag tag-data">Graph Theory</span>
+                <span class="subject-tag tag-sys">Networks and Security (OSI)</span>
+                <span class="subject-tag tag-dev">Embedded Systems & Programmable Hardware</span>
+                <span class="subject-tag tag-data">Statistics and Modeling</span>
+                <span class="subject-tag tag-sys">operating system (Linux)</span>
+                <span class="subject-tag tag-dev">Compilation and Language Theory</span>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="realized-projects-section">
+            <h3>Flagship Projects</h3>
+            <p class="section-subtitle">Practical applications of my theoretical and technical knowledge.</p>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge badge-fullstack">Web App</span>
+                        <h4>8 Queens Game</h4>
+                    </div>
+                    <p class="project-description">Development of an accessible 8-Checkers game on a website.
+                        This project allowed me to develop my skills in:
+                        <ul>
+                            <li>Front-end development.</li>
+                            <li>DOM manipulation.</li>
+                            <li>Design of intuitive user interfaces.</li>
+                        </ul>
+                    </p>
+                    <div class="project-details">
+                        <p><strong>Tools:</strong> VSCode (HTML / CSS / JavaScript).</p>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/wassimomrane/8-dames/blob/main/index.html" class="project-link"><i class="fas fa-code"></i> Source Code</a>
+                        <a href="https://wassimomrane.github.io/8-dames/" class="project-link"><i class="fas fa-eye"></i> Demo </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge badge-data">IoT & Embadded Systems</span>
+                        <h4>Weather Station</h4>
+                    </div>
+                    <p class="project-description">Embedded web server using ESP32 to monitor temperature and humidity in real time with a DHT11 sensor.</p>
+                    <div class="project-details">
+                        <p><strong>Tools:</strong> ESP32, DHT11, C++, Arduino IDE, HTML, CSS, WiFi</p>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/wassimomrane/Weather-Station" class="project-link"><i class="fas fa-code"></i> Code Source</a>
+                        
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge badge-sys">IoT & Embadded Systems</span>
+                        <h4>ON/OFF LED</h4>
+                    </div>
+                    <p class="project-description">An ESP32 board and the Blynk app were used to control an LED via wifi and the Arduino IDE.</p>
+                    <div class="project-details">
+                        <p><strong>Tools:</strong> ESP32, LED, Resistor, Connecting wires, IED Arduino, Blynk App</p>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/wassimomrane/ON-OFF-LED" class="project-link"><i class="fas fa-code"></i> Code Source</a>
+                    </div>
+                </div>
+
+ 
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge badge-sys">IoT & Embadded Systems</span>
+                        <h4>IoT-Based Photovoltaic Solar Energy Monitoring System</h4>
+                    </div>
+                    <p class="project-description">Collaborative Mini Project Monitors and transmits real-time solar panel parameters, stores energy, and visualizes data via LEDs and ThingSpeak.</p>
+                    <div class="project-details">
+                        <p><strong>Technologies:</strong> ESP32, ACS712, LM35, LDR, MPPT CN3065, Li-ion, Arduino IDE, ThingSpeak.</p>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/wassimomrane/IoT-Based-Photovoltaic-Solar-Energy-Monitoring-System" class="project-link"><i class="fas fa-code"></i> Code Source</a>
+                        <a href="projet__panneau_solaire_.pdf" target="_blank"   class="project-link"><i class="fas fa-file-pdf"></i> PDF Report</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="social-links">
+        <a href="https://www.facebook.com/wassim.omrane.142" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/wassim-omrane-882317282/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/wassimomrane" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/handsome_rover/?hl=fr" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <br>
+        <p>© 2025 Personal Portfolio | by wassim omrane</p>
+    </footer>
+
+</body>
+</html>
